@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
-
+import { Database, set, ref, update, get } from '@angular/fire/database';
 import { QuoteService } from './quote.service';
+import { convertCompilerOptionsFromJson } from 'typescript';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-home',
@@ -19,7 +22,7 @@ export class HomeComponent implements OnInit {
   multiplos: any[];
   color: any;
 
-  constructor(private quoteService: QuoteService) { 
+  constructor(private quoteService: QuoteService, private database: Database, private _snackBar: MatSnackBar,) { 
     this.multiplos = [];
   }
 
@@ -53,10 +56,28 @@ export class HomeComponent implements OnInit {
     }
     if(this.multiplos.length > 0){
       this.color = this.multiplos[0].color
+      this.postData(numero, this.multiplos)
     }
-    
 
     
   }
+
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {duration: 3000});
+  }
+
+
+  //Envio de datos a la base de datos.
+  postData(value: number, multiplos:any){
+    set(ref(this.database, 'ejercicio/multiplos'+ value), {
+      number: value,
+      multiplos: multiplos
+    });
+
+    this.openSnackBar('Aviso', 'Registros creados')
+    
+  }
+
 
 }

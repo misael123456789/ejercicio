@@ -7,9 +7,26 @@
 import { env } from './.env';
 
 export const environment = {
+  firebase: {
+    projectId: 'ejercicio-238b0',
+    appId: '1:817980178792:web:70725fb789a721903756dd',
+    databaseURL: 'https://ejercicio-238b0-default-rtdb.firebaseio.com',
+    storageBucket: 'ejercicio-238b0.appspot.com',
+    apiKey: 'AIzaSyA4j0JIwmU7jArHV4Jca6m6RTd0HSZxKYs',
+    authDomain: 'ejercicio-238b0.firebaseapp.com',
+    messagingSenderId: '817980178792',
+  },
   production: true,
   version: env['npm_package_version'],
   serverUrl: 'https://api.chucknorris.io',
   defaultLanguage: 'en-US',
-  supportedLanguages: ['en-US', 'es-ES']
+  supportedLanguages: ['en-US', 'es-ES'],
+  firebaseConfig: {
+    apiKey: "AIzaSyA4j0JIwmU7jArHV4Jca6m6RTd0HSZxKYs",
+    authDomain: "ejercicio-238b0.firebaseapp.com",
+    projectId: "ejercicio-238b0",
+    storageBucket: "ejercicio-238b0.appspot.com",
+    messagingSenderId: "817980178792",
+    appId: "1:817980178792:web:70725fb789a721903756dd"
+  }
 };

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ejercicio-238b0": {
+      "hosting": {
+        "exercise": [
+          "ejercicio-238b0"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ejercicio-238b0"
+  }
+}

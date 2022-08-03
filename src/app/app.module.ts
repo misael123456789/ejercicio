@@ -13,6 +13,11 @@ import { ShellModule } from './shell/shell.module';
 import { AboutModule } from './about/about.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
+
+
 
 @NgModule({
   imports: [
@@ -28,7 +33,9 @@ import { AppRoutingModule } from './app-routing.module';
     HomeModule,
     AboutModule,
     AppRoutingModule,
-    ReactiveFormsModule, // must be imported as the last module as it contains the fallback route
+    ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideDatabase(() => getDatabase()),
   ],
   declarations: [AppComponent],
   providers: [

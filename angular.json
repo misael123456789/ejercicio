@@ -127,6 +127,16 @@
               "src/**/*.html"
             ]
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "exercise:build:production",
+            "firebaseProject": "ejercicio-238b0",
+            "firebaseHostingSite": "ejercicio-238b0"
+          }
         }
       }
     }
