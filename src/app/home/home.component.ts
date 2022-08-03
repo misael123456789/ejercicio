@@ -13,23 +13,31 @@ export class HomeComponent implements OnInit {
 
   quote: string | undefined;
   isLoading = false;
+
+  //Variables utilizadas en el ejercicio
   number:any;
-  multiplos: any;
+  multiplos: any[];
   color: any;
 
-  constructor(private quoteService: QuoteService) { }
+  constructor(private quoteService: QuoteService) { 
+    this.multiplos = [];
+  }
 
   ngOnInit() {
+    this.color = '#000000'
     this.isLoading = true;
     this.quoteService.getRandomQuote({ category: 'dev' })
       .pipe(finalize(() => { this.isLoading = false; }))
       .subscribe((quote: string) => { this.quote = quote; });
   }
 
+
+  //Funcion que ese ejecuta cuando el formulario es enviado
   onSubmit(form: NgForm){
     this.getMultiplos(this.number)
   }
 
+  //Funcion para obtener los multiplos solicitados y asignar un color
   getMultiplos(numero: number){
     this.multiplos = [];
     if(( numero % 3 ) == 0){
@@ -43,10 +51,12 @@ export class HomeComponent implements OnInit {
     if(( numero % 7 ) == 0){
       this.multiplos.push({color: '#0000FF', number: '7'})
     }
+    if(this.multiplos.length > 0){
+      this.color = this.multiplos[0].color
+    }
+    
 
-    this.color = this.multiplos[0].color
-
-    console.log(this.color)
+    
   }
 
 }

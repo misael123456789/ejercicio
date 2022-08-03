@@ -4,6 +4,7 @@
       <img class="logo" src="assets/ngx-rocket-logo.png" alt="angular logo"/>
     </p>
     <mat-card-content>
+      <!--Formulario para obtener el número capturado por el usuario-->
       <form #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
         <div>
         <mat-form-field appearance="outline" style="width: 90%;" >
@@ -19,6 +20,10 @@
   </form>
 
   <h2>Multiplos:</h2>
+  <!--Iteración del arreglo donde se aguardan los multiplos resultantes-->
+  <p *ngIf="multiplos.length == 0">
+    No Existen multiplos
+  </p>
   <p *ngFor="let item of multiplos" [ngStyle]="{'color': color}">
     {{item.number}}
   </p>
