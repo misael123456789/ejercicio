@@ -1,0 +1,37 @@
+{
+  "generator-ngx-rocket": {
+    "version": "10.1.2",
+    "props": {
+      "location": "path",
+      "strict": true,
+      "skipInstall": false,
+      "skipQuickstart": false,
+      "initGit": true,
+      "usePrefix": true,
+      "appName": "exercise",
+      "target": [
+        "web"
+      ],
+      "ui": "material",
+      "layout": "simple",
+      "features": [],
+      "languages": [
+        "en-US",
+        "es-ES"
+      ],
+      "tools": [],
+      "utility": [],
+      "deploy": "none",
+      "projectName": "exercise",
+      "packageManager": "npm",
+      "mobile": [],
+      "desktop": [],
+      "pwa": false,
+      "auth": false,
+      "lazy": false,
+      "e2e": false,
+      "cypress": false,
+      "angulartics": false
+    }
+  }
+}

@@ -1,0 +1,28 @@
+<div class="container">
+  <mat-card>
+    <p>
+      <img class="logo" src="assets/ngx-rocket-logo.png" alt="angular logo"/>
+    </p>
+    <mat-card-content>
+      <form #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
+        <div>
+        <mat-form-field appearance="outline" style="width: 90%;" >
+          <mat-label>Ingresar número</mat-label>
+          <input matInput type="number" [(ngModel)]="number" name="number" required>
+        </mat-form-field>
+      </div>
+        <section>
+          <div class="example-button-row">
+            <button mat-raised-button color="primary" expand="block" type="submit">Calcular</button>
+          </div>
+        </section>
+  </form>
+
+  <h2>Multiplos:</h2>
+  <p *ngFor="let item of multiplos" [ngStyle]="{'color': color}">
+    {{item.number}}
+  </p>
+    </mat-card-content>
+  </mat-card>
+</div>
+
